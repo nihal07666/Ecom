@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.niit.Dao.CustomerDao;
 import com.niit.model.Customer;
+import com.niit.model.User;
 import com.niit.service.CustomerService;
 
 @Service
@@ -20,6 +21,11 @@ public class CustomerServiceImpl implements CustomerService {
 	public boolean isEmailUnique(String email) {
 		// TODO Auto-generated method stub
 		return customerDao.isEmailUnique(email);
+	}
+
+	public User getUser(String email) {
+		// TODO Auto-generated method stub
+		return customerDao.getUser(email);
 	}
 
 }

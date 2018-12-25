@@ -2,6 +2,8 @@ package com.niit.DBConfiguration;
 
 import java.util.Properties;
 
+
+
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -16,14 +18,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.model.Authorities;
 import com.niit.model.BillingAddress;
+import com.niit.model.CartItem;
 import com.niit.model.Category;
 import com.niit.model.Customer;
+import com.niit.model.CustomerOrder;
 import com.niit.model.Product;
 import com.niit.model.ShippingAddress;
 import com.niit.model.User;
 @Configuration
 @EnableTransactionManagement
-
 @ComponentScan("com.niit.*")
 public class DbConfig {
 		public DbConfig()
@@ -53,7 +56,7 @@ public class DbConfig {
 			hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 			hibernateProperties.setProperty("hibernate.show_sql", "true");
 			lsf.addProperties(hibernateProperties);
-			Class classes[]=new Class[] {Product.class, Category.class,ShippingAddress.class,BillingAddress.class,Authorities.class,Customer.class,User.class};
+			Class classes[]=new Class[] {Product.class, Category.class, Authorities.class, BillingAddress.class, Customer.class, ShippingAddress.class, User.class, CartItem.class, CustomerOrder.class};
 			System.out.println("Local Session factory bean="+lsf);
 			return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 			

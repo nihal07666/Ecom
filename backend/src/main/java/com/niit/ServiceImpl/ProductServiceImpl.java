@@ -2,16 +2,13 @@ package com.niit.ServiceImpl;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.Dao.ProductDao;
 import com.niit.model.Category;
 import com.niit.model.Product;
 import com.niit.service.ProductService;
-
 @Service(value="ProductService")
 public class ProductServiceImpl implements ProductService {
 	@Autowired

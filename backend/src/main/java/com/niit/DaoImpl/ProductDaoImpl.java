@@ -2,20 +2,19 @@ package com.niit.DaoImpl;
 
 import java.util.List;
 
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.Dao.ProductDao;
 import com.niit.model.Category;
 import com.niit.model.Product;
-
-@Repository(value="ProductDao")
 @Transactional
+@Repository(value="ProductDao")
 public class ProductDaoImpl implements ProductDao {
 	@Autowired
 	private SessionFactory sessionFactory;

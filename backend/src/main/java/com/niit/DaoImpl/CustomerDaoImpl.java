@@ -1,5 +1,6 @@
 package com.niit.DaoImpl;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import com.niit.model.Authorities;
 import com.niit.model.Customer;
 import com.niit.model.User;
 
-@Repository
+@Repository("userDao")
 @Transactional
 public class CustomerDaoImpl implements CustomerDao {
 	@Autowired
@@ -39,6 +40,14 @@ public class CustomerDaoImpl implements CustomerDao {
 			return true;
 		else //entered email already exists in the table
 			return false;
+	}
+
+
+	public User getUser(String email) {
+		Session session=sessionFactory.getCurrentSession();
+		User user=(User) session.get(User.class, email);
+		
+		return user;
 	}
 
 }

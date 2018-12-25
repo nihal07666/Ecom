@@ -1,15 +1,17 @@
 package com.niit.model;
 
-import javax.persistence.Entity;
+import javax.persistence.Entity
+
+;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,10 +22,10 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@NotNull(message = "Productname is mandatory")
+	@NotEmpty(message = "Productname is mandatory")
 	private String productName;
 
-	@NotNull(message = "Please provide the description")
+	@NotEmpty(message = "Please provide the description")
 	private String description;
 
 	@Min(value = 0, message = "Minimum quantity must be 0")
@@ -38,13 +40,7 @@ public class Product {
 	@Transient // non persistent
 	private MultipartFile image;// no column for image in product table
 
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
+	
 
 	public int getId() {
 		return id;
@@ -85,6 +81,13 @@ public class Product {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
 	public MultipartFile getImage() {
 		return image;
@@ -93,12 +96,5 @@ public class Product {
 	public void setImage(MultipartFile image) {
 		this.image = image;
 	}
-
-	public static Product getProduct(int i) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
 
 }
